@@ -11,39 +11,53 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main()
+int main() 
 {
-//Criação e inicialização das variaveis
-int Variavel_1 = 1, Variavel_2 = 2;
-char Controle = 'n', Descarga; 
-
-//Criação dos ponteiros
-int *Ponteiro_1, *Ponteiro_2;
-
-//enquanto 
-while (1)
-{
-	//Inicialização dos ponteiros 
-	Ponteiro_1 = &Variavel_1; //Ponteiro_1 recebe o endereço de Variavel_1
-	Ponteiro_2 = &Variavel_2; //Ponteiro_2 recebe o endereço de Variavel_2
+	// criacao e inicializacao de variaveis
+	int Variavel_1 = 1, Variavel_2 = 2;
+	char Controle = 'n', Descarga;
 	
-	//Exibe e solicita de controle
-	printf("\n\nDESEJA FONALIZAR O PROGRAMA? (s/n)");
-	//Efetua a leitura do comando
-	scanf("%c", &Controle);
-	// Se o camando indicar a finalização, finalize o loop
-	if(Controle == 's') break;
+	// criacao de ponteiros
+	int *Ponteiro_1, *Ponteiro_2;
 	
-	//Exibe a solicitação de um valor
-	printf("\nDIGITE UM VALOR PARA Variavel_1: ");
-	//Efetua a leitura do valor e transfere o valor para Variavel_1
-	scanf("%i", Ponteiro_1);
-	//Exibe a solicitação de um valor
-	printf("\nDIGITE UM VALOR PARA Variavel_2: ");
-	//Efetua a leitura do valor e transfere o valor para Variavel_2
-	//scanf("%i%c", Ponteiro_2, &Descarga);
-	scanf("%i", Ponteiro_2);
-}
-//retorna 0
-return 0;
+	// enquanto 
+	while (1)
+	{
+	// inicializacao de ponteiros
+	Ponteiro_1 = &Variavel_1; // Ponteiro_1 recebe o endereço de Variavel_1
+	Ponteiro_2 = &Variavel_2; // Ponteiro_2 recebe o endereço de Variavel_2
+	
+	// exibe o valor contido em cada variavel a partir do endereco contido
+	// nos ponteiros
+	printf ("\nVariavel_1 = %i", *Ponteiro_1);
+	printf ("\nVariavel_2 = %i", *Ponteiro_2);
+
+	// troca
+	int aux = *Ponteiro_1;
+	*Ponteiro_1 = *Ponteiro_2;
+	*Ponteiro_2 = aux;
+	
+	// exibe o valor contido em cada variavel a partir do endereco contido
+	// nos ponteiros, apos efetuar a troca
+	printf ("\n\nVariavel_1 depois do swap = %i", *Ponteiro_1);
+	printf ("\nVariavel_2 depois do swap = %i", *Ponteiro_2);
+		
+	// exibe a solicitacao de controle
+	printf ("\n\nDeseja finalizar o programa? (s/n): ");
+	// efetua a leitura do comando
+	scanf ("%c", &Controle);
+	// se o comando indicar a finalizacao, finaliza o loop
+	if (Controle == 's')break;
+	
+	// exibe a solicitacao de um valor
+	printf ("\nDigite um valor para a Variavel_1: ");
+	// efetua a leitura do valor e tranfere o valor para a Variavel_1
+	scanf ("%i", Ponteiro_1);
+		// exibe a solicitacao de um valor
+	printf ("Digite um valor para a Variavel_2: ");
+	// efetua a leitura do valor e tranfere o valor para a Variavel_2
+	scanf ("%i%c", Ponteiro_2, &Descarga);
+		
+	}
+	// retorna 0;
 }
